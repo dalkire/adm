@@ -49,6 +49,8 @@ void insert_list(list **l, int x)
 	p->item = x;
 	p->next = *l;
 	*l = p;
+
+	printf("Value: %d | Memory: %p\n", x, *l);
 }
 
 void print_list(list *l)
