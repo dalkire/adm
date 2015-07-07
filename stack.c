@@ -6,19 +6,19 @@
 
 typedef struct stack {
 	int value;
-	struct stack next;
+	struct stack *next;
 } stack;
 
-stack *pop(stack *s);
+stack *pop(stack **s);
 
 int main(int argc, char *argv[])
 {
 	
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 stack *pop(stack **s)
 {
-	
+	return *s;
 }
