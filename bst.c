@@ -12,17 +12,20 @@ typedef struct tree {
 } tree;
 
 void insert_tree(tree **l, int x, tree *parent);
+void traverse_tree(tree *l);
 
 int main (int argc, char *argv[])
 {
 	tree *t;
 
 	insert_tree(&t, 5, NULL);
-	insert_tree(&t, 8, NULL);
-	insert_tree(&t, 4, NULL);
+	insert_tree(&t, 1, NULL);
+	insert_tree(&t, 7, NULL);
 	insert_tree(&t, 2, NULL);
-	insert_tree(&t, 3, NULL);
+	insert_tree(&t, 8, NULL);
 	insert_tree(&t, 9, NULL);
+
+	traverse_tree(t);
 
 	return EXIT_SUCCESS;
 }
@@ -50,4 +53,13 @@ void insert_tree(tree **l, int x, tree *parent)
 		insert_tree(&((*l)->left), x, *l);
 	else
 		insert_tree(&((*l)->right), x, *l);
+}
+
+void traverse_tree(tree *l)
+{
+	if (l != NULL) {
+		traverse_tree(l->left);
+		printf("-%d-", l->item);
+		traverse_tree(l->right);
+	}
 }
